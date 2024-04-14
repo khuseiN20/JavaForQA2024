@@ -2,6 +2,7 @@ package ru.shop.repository;
 
 import ru.shop.model.Customer;
 
+
 import java.util.ArrayList;
 import java.util.List;
 

@@ -2,8 +2,8 @@ package ru.shop.service;
 
 import ru.shop.exception.BadOrderCountException;
 import ru.shop.model.Customer;
-import ru.shop.model.Order;
 import ru.shop.model.Product;
+import ru.shop.model.Order;
 import ru.shop.repository.OrderRepository;
 
 import java.util.ArrayList;
@@ -21,7 +21,7 @@ public class OrderService {
         if (count <= 0) {
             throw new BadOrderCountException("Количество товара меньше или рано 0!");
         }
-        Order order = new Order(UUID.randomUUID().toString(), customer.id(), product.id(), count, count * product.cost());
+        ExceptOrderRepository.save(new Order(UUID.randomUUID().toString(), customer.id(), product.id(), count, count * product.cost()));
     }
 
     public List<Order> findAll(){
