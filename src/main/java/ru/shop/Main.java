@@ -37,13 +37,13 @@ public class Main {
         Customer customer3 = new Customer("3", "Ded", "123123123", 44);
         customerService.save(customer3);
 
-        Product product1 = new Product("1","Товар 1", 100, SERVICE);
+        Product product1 = new Product("1","Услуга 1", 100, SERVICE);
         productService.save(product1);
 
-        Product product2 = new Product("2", "Товар 2", 200, GOOD);
+        Product product2 = new Product("2", "Товар 1", 200, GOOD);
         productService.save(product2);
 
-        Product product3 = new Product("2", "Товар 3", 300, SERVICE);
+        Product product3 = new Product("2", "Услуга 2", 300, SERVICE);
         productService.save(product3);
 
         try {
@@ -86,7 +86,7 @@ public class Main {
             }
         }
         for (Map.Entry<String, Long> entry : sumByCustomers.entrySet()) {
-            System.out.println("ID покупателя: " + entry.getKey() + ", его сумма для оплаты: " + entry.getValue());
+            System.out.println("ID покупателя: " + entry.getKey() + ", сумма для оплаты: " + entry.getValue());
         }
     }
 
