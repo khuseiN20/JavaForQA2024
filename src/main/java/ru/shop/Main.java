@@ -8,22 +8,32 @@ import static ru.shop.model.ProductType.*;
 import ru.shop.repository.CustomerRepository;
 import ru.shop.repository.OrderRepository;
 import ru.shop.repository.ProductRepository;
+import ru.shop.repository.impl.CustomerRepositoryImpl;
+import ru.shop.repository.impl.OrderRepositoryImpl;
+import ru.shop.repository.impl.ProductRepositoryImpl;
 import ru.shop.service.CustomerService;
 import ru.shop.service.OrderService;
 import ru.shop.service.ProductService;
+import ru.shop.service.impl.CustomerServiceImpl;
+import ru.shop.service.impl.OrderServiceImpl;
+import ru.shop.service.impl.ProductServiceImpl;
 
 import java.util.*;
 import java.util.List;
 
 
 public class Main {
-    private static final CustomerRepository customerRepository = new CustomerRepository();
+    /*private static final CustomerRepository customerRepository = new CustomerRepository();
     private static final OrderRepository orderRepository = new OrderRepository();
     private static final ProductRepository productRepository = new ProductRepository();
 
-    private static final CustomerService customerService = new CustomerService(customerRepository);
+    private static final CustomerService customerService = new CustomerService(customerRepository;
     private static final OrderService orderService = new OrderService(orderRepository);
-    private static final ProductService productService = new ProductService(productRepository);
+    private static final ProductService productService = new ProductService(productRepository);*/
+
+    private static final CustomerServiceImpl customerService = new CustomerServiceImpl(new CustomerRepositoryImpl());
+    private static final OrderService orderService = new OrderServiceImpl(new OrderRepositoryImpl());
+    private static final ProductService productService = new ProductServiceImpl(new ProductRepositoryImpl());
 
     public static void main(String[] args) {
 

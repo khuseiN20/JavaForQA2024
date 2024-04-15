@@ -6,14 +6,10 @@ import ru.shop.model.Customer;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CustomerRepository {
+public interface CustomerRepository {
     List<Customer> customers = new ArrayList<>();
 
-    public void save(Customer cu) {
-        customers.add(cu);
-    }
+    void save(Customer cu);
 
-    public List<Customer> findAll() {
-        return customers;
-    }
+    List<Customer> findAll();
 }

@@ -5,14 +5,10 @@ import ru.shop.model.Order;
 import java.util.ArrayList;
 import java.util.List;
 
-public class OrderRepository {
+public interface OrderRepository {
     List<Order> orders = new ArrayList<>();
 
-    public void save(Order or) {
-        orders.add(or);
-    }
+    void save(Order or);
 
-    public List<Order> findAll() {
-        return orders;
-    }
+    List<Order> findAll();
 }

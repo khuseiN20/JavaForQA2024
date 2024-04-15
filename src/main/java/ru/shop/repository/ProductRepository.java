@@ -4,14 +4,10 @@ import ru.shop.model.Product;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProductRepository {
+public interface ProductRepository {
     List<Product> products = new ArrayList<>();
 
-    public void save(Product pr) {
-        products.add(pr);
-    }
+    void save(Product pr);
 
-    public List<Product> findAll() {
-        return products;
-    }
+    List<Product> findAll();
 }
