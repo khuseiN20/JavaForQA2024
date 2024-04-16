@@ -7,17 +7,17 @@ import ru.shop.repository.impl.CustomerRepositoryImpl;
 import java.util.List;
 
 public class CustomerServiceImpl implements CustomerRepository {
-    private final CustomerRepositoryImpl ExceptCustomerRepository;
+    private final CustomerRepositoryImpl exceptCustomerRepository;
 
-    public CustomerServiceImpl(CustomerRepositoryImpl ConstructorCustomerRepository) {
-        this.ExceptCustomerRepository = ConstructorCustomerRepository;
+    public CustomerServiceImpl(CustomerRepositoryImpl constructorCustomerRepository) {
+        this.exceptCustomerRepository = constructorCustomerRepository;
     }
 
     public void save(Customer customer) {
-        ExceptCustomerRepository.save(customer);
+        exceptCustomerRepository.save(customer);
     }
 
     public List<Customer> findAll() {
-        return ExceptCustomerRepository.findAll();
+        return exceptCustomerRepository.findAll();
     }
 }

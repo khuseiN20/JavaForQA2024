@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class OrderRepositoryImpl implements OrderRepository {
-    List<Order> orders = new ArrayList<>();
+    private final List<Order> orders = new ArrayList<>();
 
     public void save(Order or) {
         orders.add(or);

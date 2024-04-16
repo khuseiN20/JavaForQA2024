@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.UUID;
 
 public interface OrderService {
-     void add(Customer customer, Product product, int count) throws BadOrderCountException;
+    void add(Customer customer, Product product, int count) throws BadOrderCountException;
 
     List<Order> findAll();
 

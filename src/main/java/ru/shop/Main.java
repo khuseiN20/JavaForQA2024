@@ -4,7 +4,9 @@ import ru.shop.exception.BadOrderCountException;
 import ru.shop.model.Customer;
 import ru.shop.model.Order;
 import ru.shop.model.Product;
+
 import static ru.shop.model.ProductType.*;
+
 import ru.shop.repository.CustomerRepository;
 import ru.shop.repository.OrderRepository;
 import ru.shop.repository.ProductRepository;
@@ -47,7 +49,7 @@ public class Main {
         Customer customer3 = new Customer("3", "Ded", "123123123", 44);
         customerService.save(customer3);
 
-        Product product1 = new Product("1","Услуга 1", 100, SERVICE);
+        Product product1 = new Product("1", "Услуга 1", 100, SERVICE);
         productService.save(product1);
 
         Product product2 = new Product("2", "Товар 1", 200, GOOD);
@@ -73,7 +75,7 @@ public class Main {
         List<Order> orders = orderService.findAll();
         Map<String, Integer> ordersByCustomers = new HashMap<>();
 
-        for (Order order: orders) {
+        for (Order order : orders) {
             Integer count = ordersByCustomers.get(order.customerId());
             if (count == null) {
                 ordersByCustomers.put(order.customerId(), 1);
@@ -87,7 +89,7 @@ public class Main {
 
         Map<String, Long> sumByCustomers = new HashMap<>();
 
-        for (Order order: orders) {
+        for (Order order : orders) {
             Long amount = sumByCustomers.get(order.customerId());
             if (amount == null) {
                 sumByCustomers.put(order.customerId(), order.amount());
@@ -99,5 +101,4 @@ public class Main {
             System.out.println("ID покупателя: " + entry.getKey() + ", сумма для оплаты: " + entry.getValue());
         }
     }
-
 }

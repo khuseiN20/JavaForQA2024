@@ -13,36 +13,36 @@ import java.util.List;
 import java.util.UUID;
 
 public class OrderServiceImpl implements OrderService {
-    private final OrderRepositoryImpl ExceptOrderRepository;
+    private final OrderRepositoryImpl exceptOrderRepository;
 
-    public OrderServiceImpl(OrderRepositoryImpl ConstructorOrderRepository) {
-        this.ExceptOrderRepository = ConstructorOrderRepository;
+    public OrderServiceImpl(OrderRepositoryImpl constructorOrderRepository) {
+        this.exceptOrderRepository = constructorOrderRepository;
     }
 
     public void add(Customer customer, Product product, int count) throws BadOrderCountException {
         if (count <= 0) {
             throw new BadOrderCountException("Количество товара меньше или рано 0!");
         }
-        ExceptOrderRepository.save(new Order(UUID.randomUUID().toString(), customer.id(), product.id(), count, count * product.cost()));
+        exceptOrderRepository.save(new Order(UUID.randomUUID().toString(), customer.id(), product.id(), count, count * product.cost()));
     }
 
-    public List<Order> findAll(){
-        return ExceptOrderRepository.findAll();
+    public List<Order> findAll() {
+        return exceptOrderRepository.findAll();
     }
 
-    public  List<Order> findByCustomer(Customer customer){
+    public List<Order> findByCustomer(Customer customer) {
         List<Order> customerOrder = new ArrayList<>();
-        for (Order order:findAll()){
-            if(order.customerId().equals(customer.id())){
+        for (Order order : findAll()) {
+            if (order.customerId().equals(customer.id())) {
                 customerOrder.add(order);
             }
         }
         return customerOrder;
     }
 
-    public long getTotalCustomer(Customer customer){
-        long totalAmount=0;
-        for(Order order:findByCustomer(customer)){
+    public long getTotalCustomer(Customer customer) {
+        long totalAmount = 0;
+        for (Order order : findByCustomer(customer)) {
             totalAmount += order.amount();
         }
         return totalAmount;

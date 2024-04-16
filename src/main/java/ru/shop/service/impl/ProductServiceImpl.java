@@ -10,18 +10,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ProductServiceImpl implements ProductService {
-    private final ProductRepositoryImpl ExceptProductRepository;
+    private final ProductRepositoryImpl exceptProductRepository;
 
-    public ProductServiceImpl(ProductRepositoryImpl ConstructorProductRepository) {
-        this.ExceptProductRepository = ConstructorProductRepository;
+    public ProductServiceImpl(ProductRepositoryImpl constructorProductRepository) {
+        this.exceptProductRepository = constructorProductRepository;
     }
 
     public void save(Product product) {
-        ExceptProductRepository.save(product);
+        exceptProductRepository.save(product);
     }
 
     public List<Product> findAll() {
-        return ExceptProductRepository.findAll();
+        return exceptProductRepository.findAll();
     }
 
     public List<Product> findByProductType(ProductType type) {

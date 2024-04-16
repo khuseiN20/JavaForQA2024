@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ProductRepositoryImpl implements ProductRepository {
-    List<Product> products = new ArrayList<>();
+    private final List<Product> products = new ArrayList<>();
 
     public void save(Product pr) {
         products.add(pr);
